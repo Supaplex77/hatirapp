@@ -7,14 +7,16 @@
   <meta name="theme-color" content="#0f172a">
   <title>Hatır — Official App Page</title>
   <style>
+    /* App AccentColor (HatirSample Assets): #FF7A59 */
     :root {
+      --primary: #FF7A59;
+      --primary-hover: #e86a4a;
       --bg: #0b1220;
       --surface: #111827;
       --surface2: #1e293b;
       --text: #f1f5f9;
       --muted: #94a3b8;
-      --accent: #f472b6;
-      --accent2: #60a5fa;
+      --link: #7dd3fc;
       --border: rgba(148, 163, 184, 0.2);
       --radius: 14px;
       --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -25,6 +27,7 @@
       --surface2: #f1f5f9;
       --text: #0f172a;
       --muted: #64748b;
+      --link: #0284c7;
       --border: rgba(15, 23, 42, 0.12);
     }
     * { box-sizing: border-box; }
@@ -37,7 +40,7 @@
       line-height: 1.6;
       min-height: 100vh;
     }
-    a { color: var(--accent2); text-decoration: none; }
+    a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .wrap { max-width: 960px; margin: 0 auto; padding: 1.25rem 1.5rem 3rem; }
     header {
@@ -53,8 +56,8 @@
       font-weight: 700;
       font-size: 1.35rem;
       letter-spacing: -0.02em;
+      color: var(--primary);
     }
-    .brand span { color: var(--accent); }
     .controls {
       display: flex;
       align-items: center;
@@ -73,7 +76,7 @@
     }
     .btn:hover { opacity: 0.92; }
     .btn[aria-pressed="true"] {
-      background: linear-gradient(135deg, var(--accent), #c084fc);
+      background: var(--primary);
       color: #fff;
       border-color: transparent;
     }
@@ -118,7 +121,49 @@
       gap: 0.75rem;
     }
     @media (min-width: 560px) {
+      .cards { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) {
       .cards { grid-template-columns: repeat(3, 1fr); }
+    }
+    .app-store-block {
+      margin-top: 0.5rem;
+      padding: 1.5rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-align: center;
+    }
+    .app-store-block h2 {
+      font-size: 1.25rem;
+      margin: 0 0 0.5rem;
+    }
+    .app-store-block .note {
+      margin: 0 0 1.25rem;
+      max-width: 32rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .app-store-badge-link {
+      display: inline-block;
+      line-height: 0;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    .app-store-badge-link:hover {
+      transform: scale(1.02);
+      opacity: 0.95;
+    }
+    .app-store-badge-link:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+    .app-store-badge-link img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: min(100%, 320px);
+      margin: 0 auto;
     }
     .card {
       background: var(--surface);
@@ -149,7 +194,9 @@
       margin-top: 0.65rem;
       font-weight: 600;
       font-size: 0.9rem;
+      color: var(--primary);
     }
+    .card a:hover { color: var(--primary-hover); }
     .shot-tabs {
       display: flex;
       gap: 0.5rem;
@@ -158,25 +205,51 @@
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
     }
     @media (min-width: 640px) {
       .gallery { grid-template-columns: repeat(5, 1fr); }
     }
     .shot {
       position: relative;
-      aspect-ratio: 9 / 19.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid var(--border);
       background: var(--surface2);
+      padding: 0.35rem;
+    }
+    .shot-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 0;
+      border-radius: 10px;
+      cursor: zoom-in;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .shot-link:hover { opacity: 0.94; }
+    .shot-link:focus-visible {
+      box-shadow: 0 0 0 2px var(--primary);
     }
     .shot img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
       display: block;
+      max-width: 100%;
+      max-height: min(52vh, 640px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      /* Avoid upscaling blur: never stretch past intrinsic size */
+      image-rendering: auto;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
     .shot .placeholder {
       position: absolute;
@@ -190,7 +263,6 @@
       color: var(--muted);
       line-height: 1.3;
     }
-    .shot img:not([src]), .shot img[src=""] { opacity: 0; }
     footer {
       margin-top: 3rem;
       padding-top: 1.5rem;
@@ -200,6 +272,12 @@
       text-align: center;
     }
     footer a { color: var(--muted); }
+    .footer-dev {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      opacity: 0.85;
+    }
     .note {
       font-size: 0.8rem;
       color: var(--muted);
@@ -211,7 +289,7 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="brand">Hat<span>ır</span></div>
+      <div class="brand">Hatır</div>
       <div class="controls">
         <button type="button" class="btn" id="btnTheme" aria-pressed="false" title="Page theme">🌙</button>
         <button type="button" class="btn" id="btnLang" aria-label="Switch language">TR</button>
@@ -245,9 +323,17 @@
       </div>
     </section>
 
+    <section class="app-store-block" aria-labelledby="appstore-heading">
+      <h2 id="appstore-heading" data-i18n="appStoreSectionTitle">App Store</h2>
+      <p class="note" data-i18n="appStoreSectionSub">Download Hatır for iPhone and iPad.</p>
+      <a id="linkAppStore" class="app-store-badge-link" href="https://apps.apple.com/app/id6759647374" target="_blank" rel="noopener noreferrer">
+        <img id="appStoreBadgeImg" src="" alt="" decoding="async" />
+      </a>
+    </section>
+
     <section aria-labelledby="shots-heading">
       <h2 id="shots-heading" data-i18n="shotsTitle">App screenshots</h2>
-      <p class="note" data-i18n="shotsNote">Simulator captures — light and dark appearance.</p>
+      <p class="note" data-i18n="shotsNote">Screen captures in light and dark appearance.</p>
       <div class="shot-tabs" role="tablist" aria-label="Screenshot theme">
         <button type="button" class="btn" id="tabLight" role="tab" aria-selected="true" aria-pressed="true" data-i18n="tabLight">Light</button>
         <button type="button" class="btn" id="tabDark" role="tab" aria-selected="false" aria-pressed="false" data-i18n="tabDark">Dark</button>
@@ -259,12 +345,13 @@
     <footer>
       <p><span data-i18n="footerContact">Support:</span> <a href="mailto:hatirofficial+support@gmail.com">hatirofficial+support@gmail.com</a></p>
       <p data-i18n="footerCopy">© Hatır — Personal relationship reminders. Not a social network.</p>
+      <p class="footer-dev" data-i18n="footerDeveloper">© 2026 Bilal Enes Fedar. All rights reserved.</p>
     </footer>
   </div>
 
   <script>
     (function () {
-      var BASE = "https://supaplex77.github.io/hatirapp/";
+      /* Same repo as app-page/: marketing, privacy-policy, support are sibling folders */
       var LANG = "en";
 
       var STR = {
@@ -280,13 +367,18 @@
           cardSupport: "Support",
           cardSupportDesc: "Contact and help.",
           open: "Open →",
+          appStoreSectionTitle: "App Store",
+          appStoreSectionSub: "Download Hatır for iPhone and iPad.",
+          appStoreBadgeAlt: "Download on the App Store",
           shotsTitle: "App screenshots",
-          shotsNote: "Simulator captures — light and dark appearance.",
+          shotsNote: "Screen captures in light and dark appearance.",
           tabLight: "Light",
           tabDark: "Dark",
           footerContact: "Support:",
           footerCopy: "© Hatır — Personal relationship reminders. Not a social network.",
-          placeholder: "Add PNG: screenshots/{mode}/NN.png"
+          footerDeveloper: "© 2026 Bilal Enes Fedar. All rights reserved.",
+          placeholder: "Add PNG: screenshots/{mode}/NN.png",
+          openFullAlt: "Open full-size image in new tab"
         },
         tr: {
           heroTitle: "Hatır — Resmi Uygulama Sayfası",
@@ -300,22 +392,27 @@
           cardSupport: "Destek",
           cardSupportDesc: "İletişim ve yardım.",
           open: "Aç →",
+          appStoreSectionTitle: "App Store",
+          appStoreSectionSub: "iPhone ve iPad için App Store'dan indirin.",
+          appStoreBadgeAlt: "App Store'dan İndir",
           shotsTitle: "Uygulama ekran görüntüleri",
-          shotsNote: "Simülatör görüntüleri — açık ve koyu görünüm.",
+          shotsNote: "Açık ve koyu görünümde ekran görüntüleri.",
           tabLight: "Açık",
           tabDark: "Koyu",
           footerContact: "Destek:",
           footerCopy: "© Hatır — Kişisel ilişki hatırlatıcıları. Sosyal ağ değildir.",
-          placeholder: "PNG ekleyin: screenshots/{mode}/NN.png"
+          footerDeveloper: "© 2026 Bilal Enes Fedar. Tüm hakları saklıdır.",
+          placeholder: "PNG ekleyin: screenshots/{mode}/NN.png",
+          openFullAlt: "Tam boy görüntüyü yeni sekmede aç"
         }
       };
 
       function urls() {
         var l = LANG === "tr" ? "tr" : "en";
         return {
-          marketing: BASE + "marketing/" + l + ".html",
-          privacy: BASE + "privacy-policy/" + l + ".html",
-          support: BASE + "support/" + l + ".html"
+          marketing: "../marketing/" + l + ".html",
+          privacy: "../privacy-policy/" + l + ".html",
+          support: "../support/" + l + ".html"
         };
       }
 
@@ -324,6 +421,21 @@
         document.getElementById("linkMarketing").href = u.marketing;
         document.getElementById("linkPrivacy").href = u.privacy;
         document.getElementById("linkSupport").href = u.support;
+      }
+
+      /* Apple Marketing: official “Download on the App Store” badge (locale-specific PNG) */
+      function appStoreBadgeImageUrl() {
+        var locale = LANG === "tr" ? "tr-tr" : "en-us";
+        return "https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/" + locale + "?size=500x167";
+      }
+
+      function applyAppStoreBadge() {
+        var t = STR[LANG] || STR.en;
+        var img = document.getElementById("appStoreBadgeImg");
+        if (img) {
+          img.src = appStoreBadgeImageUrl();
+          img.alt = t.appStoreBadgeAlt || "";
+        }
       }
 
       function applyI18n() {
@@ -335,29 +447,42 @@
         });
         document.getElementById("btnLang").textContent = LANG === "tr" ? "EN" : "TR";
         applyLinks();
+        applyAppStoreBadge();
       }
 
       function buildGallery(containerId, mode) {
         var container = document.getElementById(containerId);
         container.innerHTML = "";
+        var tnBase = STR[LANG] || STR.en;
         for (let i = 1; i <= 5; i++) {
           let num = i < 10 ? "0" + i : String(i);
+          var src = "screenshots/" + mode + "/" + num + ".png";
           var wrap = document.createElement("div");
           wrap.className = "shot";
+          var link = document.createElement("a");
+          link.className = "shot-link";
+          link.href = src;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.setAttribute("aria-label", tnBase.openFullAlt + " — " + mode + " " + num);
           var img = document.createElement("img");
           img.alt = "Hatır screenshot " + mode + " " + i;
           img.loading = "lazy";
-          img.src = "screenshots/" + mode + "/" + num + ".png";
+          img.decoding = "async";
+          img.src = src;
           img.addEventListener("error", function onImgErr() {
             img.removeEventListener("error", onImgErr);
-            img.style.display = "none";
+            if (link.parentNode === wrap) {
+              wrap.removeChild(link);
+            }
             var ph = document.createElement("div");
             ph.className = "placeholder";
             var tn = STR[LANG] || STR.en;
             ph.textContent = tn.placeholder.replace("{mode}", mode).replace("NN", num);
             wrap.appendChild(ph);
           });
-          wrap.appendChild(img);
+          link.appendChild(img);
+          wrap.appendChild(link);
           container.appendChild(wrap);
         }
       }
