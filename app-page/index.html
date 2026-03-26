@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hatır — official app information, privacy policy, support, and screenshots for reviewers.">
+  <meta name="theme-color" content="#0f172a">
+  <title>Hatır — Official App Page</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --surface: #111827;
+      --surface2: #1e293b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #f472b6;
+      --accent2: #60a5fa;
+      --border: rgba(148, 163, 184, 0.2);
+      --radius: 14px;
+      --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface2: #f1f5f9;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: rgba(15, 23, 42, 0.12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 1.25rem 1.5rem 3rem; }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 0 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+    .brand span { color: var(--accent); }
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn:hover { opacity: 0.92; }
+    .btn[aria-pressed="true"] {
+      background: linear-gradient(135deg, var(--accent), #c084fc);
+      color: #fff;
+      border-color: transparent;
+    }
+    .hero {
+      padding: 2.5rem 0 1rem;
+      text-align: center;
+    }
+    .hero h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    .hero p {
+      margin: 0 auto;
+      max-width: 36rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    section {
+      margin-top: 2.5rem;
+    }
+    section h2 {
+      font-size: 1.15rem;
+      margin: 0 0 1rem;
+      font-weight: 600;
+    }
+    .cards {
+      display: grid;
+      gap: 0.75rem;
+    }
+    @media (min-width: 560px) {
+      .cards { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.1rem 1rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+    [data-theme="light"] .card:hover {
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+    }
+    .card h3 {
+      margin: 0 0 0.35rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .card p {
+      margin: 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 0.65rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .shot-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
+    @media (min-width: 640px) {
+      .gallery { grid-template-columns: repeat(5, 1fr); }
+    }
+    .shot {
+      position: relative;
+      aspect-ratio: 9 / 19.5;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+    }
+    .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .shot .placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+    .shot img:not([src]), .shot img[src=""] { opacity: 0; }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    footer a { color: var(--muted); }
+    .note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">Hat<span>ır</span></div>
+      <div class="controls">
+        <button type="button" class="btn" id="btnTheme" aria-pressed="false" title="Page theme">🌙</button>
+        <button type="button" class="btn" id="btnLang" aria-label="Switch language">TR</button>
+      </div>
+    </header>
+
+    <div class="hero">
+      <h1 data-i18n="heroTitle">Hatır — Official App Page</h1>
+      <p data-i18n="heroSub">Relationship reminders and interaction tracking. This page provides official links to our product information, privacy policy, and support for app stores and partners.</p>
+      <span class="badge" data-i18n="badge">Information for reviewers &amp; partners</span>
+    </div>
+
+    <section aria-labelledby="links-heading">
+      <h2 id="links-heading" data-i18n="linksTitle">Official links</h2>
+      <div class="cards">
+        <div class="card">
+          <h3 data-i18n="cardProduct">Product</h3>
+          <p data-i18n="cardProductDesc">What Hatır does and main features.</p>
+          <a id="linkMarketing" href="#" target="_blank" rel="noopener noreferrer" data-i18n="open">Open →</a>
+        </div>
+        <div class="card">
+          <h3 data-i18n="cardPrivacy">Privacy policy</h3>
+          <p data-i18n="cardPrivacyDesc">How data is handled in the app.</p>
+          <a id="linkPrivacy" href="#" target="_blank" rel="noopener noreferrer" data-i18n="open">Open →</a>
+        </div>
+        <div class="card">
+          <h3 data-i18n="cardSupport">Support</h3>
+          <p data-i18n="cardSupportDesc">Contact and help.</p>
+          <a id="linkSupport" href="#" target="_blank" rel="noopener noreferrer" data-i18n="open">Open →</a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="shots-heading">
+      <h2 id="shots-heading" data-i18n="shotsTitle">App screenshots</h2>
+      <p class="note" data-i18n="shotsNote">Simulator captures — light and dark appearance.</p>
+      <div class="shot-tabs" role="tablist" aria-label="Screenshot theme">
+        <button type="button" class="btn" id="tabLight" role="tab" aria-selected="true" aria-pressed="true" data-i18n="tabLight">Light</button>
+        <button type="button" class="btn" id="tabDark" role="tab" aria-selected="false" aria-pressed="false" data-i18n="tabDark">Dark</button>
+      </div>
+      <div id="galleryLight" class="gallery" role="tabpanel"></div>
+      <div id="galleryDark" class="gallery hidden" role="tabpanel" hidden></div>
+    </section>
+
+    <footer>
+      <p><span data-i18n="footerContact">Support:</span> <a href="mailto:hatirofficial+support@gmail.com">hatirofficial+support@gmail.com</a></p>
+      <p data-i18n="footerCopy">© Hatır — Personal relationship reminders. Not a social network.</p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var BASE = "https://supaplex77.github.io/hatirapp/";
+      var LANG = "en";
+
+      var STR = {
+        en: {
+          heroTitle: "Hatır — Official App Page",
+          heroSub: "Relationship reminders and interaction tracking. This page provides official links to our product information, privacy policy, and support for app stores and partners.",
+          badge: "Information for reviewers & partners",
+          linksTitle: "Official links",
+          cardProduct: "Product",
+          cardProductDesc: "What Hatır does and main features.",
+          cardPrivacy: "Privacy policy",
+          cardPrivacyDesc: "How data is handled in the app.",
+          cardSupport: "Support",
+          cardSupportDesc: "Contact and help.",
+          open: "Open →",
+          shotsTitle: "App screenshots",
+          shotsNote: "Simulator captures — light and dark appearance.",
+          tabLight: "Light",
+          tabDark: "Dark",
+          footerContact: "Support:",
+          footerCopy: "© Hatır — Personal relationship reminders. Not a social network.",
+          placeholder: "Add PNG: screenshots/{mode}/NN.png"
+        },
+        tr: {
+          heroTitle: "Hatır — Resmi Uygulama Sayfası",
+          heroSub: "İlişki hatırlatıcıları ve etkileşim takibi. Bu sayfa; mağaza ve iş ortakları için ürün bilgisi, gizlilik politikası ve destek bağlantılarını sunar.",
+          badge: "İnceleme ve ortaklar için bilgi",
+          linksTitle: "Resmi bağlantılar",
+          cardProduct: "Ürün",
+          cardProductDesc: "Hatır ne yapar, temel özellikler.",
+          cardPrivacy: "Gizlilik politikası",
+          cardPrivacyDesc: "Verilerin uygulamada nasıl işlendiği.",
+          cardSupport: "Destek",
+          cardSupportDesc: "İletişim ve yardım.",
+          open: "Aç →",
+          shotsTitle: "Uygulama ekran görüntüleri",
+          shotsNote: "Simülatör görüntüleri — açık ve koyu görünüm.",
+          tabLight: "Açık",
+          tabDark: "Koyu",
+          footerContact: "Destek:",
+          footerCopy: "© Hatır — Kişisel ilişki hatırlatıcıları. Sosyal ağ değildir.",
+          placeholder: "PNG ekleyin: screenshots/{mode}/NN.png"
+        }
+      };
+
+      function urls() {
+        var l = LANG === "tr" ? "tr" : "en";
+        return {
+          marketing: BASE + "marketing/" + l + ".html",
+          privacy: BASE + "privacy-policy/" + l + ".html",
+          support: BASE + "support/" + l + ".html"
+        };
+      }
+
+      function applyLinks() {
+        var u = urls();
+        document.getElementById("linkMarketing").href = u.marketing;
+        document.getElementById("linkPrivacy").href = u.privacy;
+        document.getElementById("linkSupport").href = u.support;
+      }
+
+      function applyI18n() {
+        var t = STR[LANG] || STR.en;
+        document.documentElement.lang = LANG === "tr" ? "tr" : "en";
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+          var k = el.getAttribute("data-i18n");
+          if (t[k]) el.textContent = t[k];
+        });
+        document.getElementById("btnLang").textContent = LANG === "tr" ? "EN" : "TR";
+        applyLinks();
+      }
+
+      function buildGallery(containerId, mode) {
+        var container = document.getElementById(containerId);
+        container.innerHTML = "";
+        for (let i = 1; i <= 5; i++) {
+          let num = i < 10 ? "0" + i : String(i);
+          var wrap = document.createElement("div");
+          wrap.className = "shot";
+          var img = document.createElement("img");
+          img.alt = "Hatır screenshot " + mode + " " + i;
+          img.loading = "lazy";
+          img.src = "screenshots/" + mode + "/" + num + ".png";
+          img.addEventListener("error", function onImgErr() {
+            img.removeEventListener("error", onImgErr);
+            img.style.display = "none";
+            var ph = document.createElement("div");
+            ph.className = "placeholder";
+            var tn = STR[LANG] || STR.en;
+            ph.textContent = tn.placeholder.replace("{mode}", mode).replace("NN", num);
+            wrap.appendChild(ph);
+          });
+          wrap.appendChild(img);
+          container.appendChild(wrap);
+        }
+      }
+
+      function refreshGalleries() {
+        buildGallery("galleryLight", "light");
+        buildGallery("galleryDark", "dark");
+      }
+
+      document.getElementById("btnLang").addEventListener("click", function () {
+        LANG = LANG === "tr" ? "en" : "tr";
+        applyI18n();
+        refreshGalleries();
+      });
+
+      var pageTheme = localStorage.getItem("hatirPageTheme") || "dark";
+      function setPageTheme(dark) {
+        document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+        var btn = document.getElementById("btnTheme");
+        btn.textContent = dark ? "☀️" : "🌙";
+        btn.setAttribute("aria-pressed", dark ? "true" : "false");
+        localStorage.setItem("hatirPageTheme", dark ? "dark" : "light");
+      }
+      document.getElementById("btnTheme").addEventListener("click", function () {
+        var isDark = document.documentElement.getAttribute("data-theme") !== "light";
+        setPageTheme(!isDark);
+      });
+      setPageTheme(pageTheme !== "light");
+
+      document.getElementById("tabLight").addEventListener("click", function () {
+        document.getElementById("galleryLight").classList.remove("hidden");
+        document.getElementById("galleryLight").hidden = false;
+        document.getElementById("galleryDark").classList.add("hidden");
+        document.getElementById("galleryDark").hidden = true;
+        document.getElementById("tabLight").setAttribute("aria-pressed", "true");
+        document.getElementById("tabDark").setAttribute("aria-pressed", "false");
+      });
+      document.getElementById("tabDark").addEventListener("click", function () {
+        document.getElementById("galleryDark").classList.remove("hidden");
+        document.getElementById("galleryDark").hidden = false;
+        document.getElementById("galleryLight").classList.add("hidden");
+        document.getElementById("galleryLight").hidden = true;
+        document.getElementById("tabDark").setAttribute("aria-pressed", "true");
+        document.getElementById("tabLight").setAttribute("aria-pressed", "false");
+      });
+
+      applyI18n();
+      refreshGalleries();
+    })();
+  </script>
+</body>
+</html>
