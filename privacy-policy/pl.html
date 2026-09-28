@@ -45,7 +45,7 @@
     </div>
 
     <h1>Polityka prywatności</h1>
-    <p class="updated">Ostatnia aktualizacja: 14 marca 2026</p>
+    <p class="updated">Ostatnia aktualizacja: 28 września 2026</p>
 
     <p>My w aplikacji Hatır („Aplikacja") szanujemy Twoją prywatność. Niniejsza Polityka prywatności w przejrzysty sposób wyjaśnia, w jaki sposób Twoje dane są przetwarzane podczas korzystania z naszej Aplikacji.</p>
 
@@ -62,33 +62,29 @@
     </ul>
     <p>Dane te nigdy nie są przekazywane na żaden serwer; pozostają całkowicie na Twoim urządzeniu. Nie mają do nich dostępu inne aplikacje ani osoby trzecie.</p>
 
-    <h2>2. Dane dotyczące użytkowania, które gromadzimy</h2>
-    <p>W celu ulepszania i rozwijania Aplikacji gromadzimy w bezpieczny sposób następujące <strong>anonimowe, zagregowane</strong> informacje. Dane te nie identyfikują Cię osobiście i nie zawierają żadnej wprowadzanej przez Ciebie treści (takiej jak imiona, numery itp.).</p>
+    <h2>2. Dane techniczne, które gromadzimy</h2>
+    <p>Aplikacja nie wymaga konta i nigdy nigdzie nie wysyła wprowadzanych przez Ciebie treści. Aby Aplikacja działała stabilnie, przetwarzane są wyłącznie następujące informacje <strong>techniczne</strong>:</p>
     <ul>
-        <li><strong>Czas ostatniej aktywności:</strong> Znacznik czasowy ostatniego użycia Aplikacji</li>
-        <li><strong>Liczba zapisanych kontaktów:</strong> Całkowita liczba dodanych przez Ciebie kontaktów (wyłącznie liczba, bez imion ani szczegółów)</li>
-        <li><strong>Liczba przypomnień:</strong> Liczba utworzonych przez Ciebie przypomnień (wyłącznie liczba, bez treści)</li>
-        <li><strong>Liczba interakcji:</strong> Całkowita liczba Twoich interakcji z kontaktami (wyłącznie liczba, bez szczegółów)</li>
-        <li><strong>Identyfikator urządzenia:</strong> Anonimowy identyfikator służący do rozróżniania wersji Aplikacji i urządzeń</li>
-        <li><strong>Wersja systemu operacyjnego:</strong> Wersja systemu iOS na Twoim urządzeniu (dla kompatybilności i rozwiązywania problemów)</li>
-        <li><strong>Wersja Aplikacji:</strong> Numer wersji używanej przez Ciebie aplikacji Hatır</li>
-        <li><strong>Raporty o awariach:</strong> Informacje techniczne do rozwiązywania problemów przy awarii Aplikacji (np. ślad stosu, model urządzenia, wersja systemu; nie obejmuje wprowadzanej przez Ciebie treści)</li>
+        <li><strong>Raporty awarii:</strong> Informacje techniczne potrzebne do usunięcia awarii (np. stack trace, model urządzenia, wersja iOS, wersja aplikacji). Wprowadzane przez Ciebie treści nigdy nie są dołączane.</li>
+        <li><strong>Ustawienia aplikacji:</strong> Podczas uruchamiania Aplikacja odczytuje z serwera ustawienia, takie jak minimalna obsługiwana wersja i stan prac serwisowych. W tym żądaniu wysyłane są wyłącznie informacje techniczne, takie jak wersja aplikacji.</li>
+        <li><strong>Anonimowy identyfikator instalacji:</strong> Losowy identyfikator właściwy dla tej instalacji Aplikacji, niezbędny do działania powyższych usług. Nie identyfikuje Cię osobiście.</li>
     </ul>
-    <p>Dane te są bezpiecznie przechowywane za pośrednictwem infrastruktury Firestore i Firebase Crashlytics i wykorzystywane wyłącznie do poprawy jakości Aplikacji oraz usuwania błędów.</p>
+    <p>Te informacje są przetwarzane za pośrednictwem Firebase Crashlytics i Firebase Remote Config. Nie gromadzimy statystyk użytkowania, danych analitycznych ani danych reklamowych.</p>
 
     <h2>3. Jak wykorzystujemy Twoje dane</h2>
-    <p>Wykorzystujemy gromadzone dane dotyczące użytkowania do następujących celów:</p>
+    <p>Wykorzystujemy te informacje techniczne wyłącznie w celu:</p>
     <ul>
-        <li>Zapewnianie podstawowych funkcji Aplikacji (przypomnienia, powiadomienia)</li>
-        <li>Analizowanie wydajności Aplikacji i usuwanie błędów</li>
-        <li>Pozyskiwanie ogólnych statystyk w celu poprawy doświadczeń użytkownika</li>
+        <li>Wykrywania i naprawiania błędów oraz utrzymania stabilności Aplikacji</li>
+        <li>Utrzymywania aktualnych ustawień Aplikacji (np. informowania Cię, gdy wymagana jest aktualizacja)</li>
     </ul>
+    <p>Przypomnienia i powiadomienia są tworzone i planowane w całości na Twoim urządzeniu.</p>
 
     <h2>4. Przechowywanie i bezpieczeństwo danych</h2>
-    <p>Twoje osobowe dane wejściowe są przechowywane wyłącznie na Twoim urządzeniu. Możesz usunąć wszystkie swoje dane poprzez Aplikację w dowolnym momencie. Dane dotyczące użytkowania są przechowywane na bezpiecznych serwerach i przesyłane za pomocą szyfrowanych połączeń.</p>
+    <p>Twoje osobowe dane wejściowe są przechowywane wyłącznie na Twoim urządzeniu. Możesz usuwać osoby pojedynczo w Aplikacji lub usunąć wszystkie swoje dane, usuwając Aplikację z urządzenia. Raporty awarii są przesyłane za pomocą szyfrowanych połączeń i przechowywane na bezpiecznych serwerach Google.</p>
 
-    <h2>5. Usługi stron trzecich</h2>
-    <p>Aplikacja korzysta z zaufanych usług stron trzecich, takich jak Google Firestore do przechowywania danych, Firebase Crashlytics do raportowania awarii oraz Google AdMob do wyświetlania reklam. Reklamy mogą wykorzystywać zagregowane statystyki (typ urządzenia, liczba wyświetleń reklam itp.) bez gromadzenia Twojej osobistej treści. Ci dostawcy stosują standardowe branżowe środki bezpieczeństwa i podlegają własnym politykom prywatności.</p>
+    <h2>5. Usługi stron trzecich, reklamy i śledzenie</h2>
+    <p>Aplikacja korzysta wyłącznie z Firebase Crashlytics do raportów awarii oraz z Firebase Remote Config do ustawień aplikacji (obie usługi dostarcza Google). Dostawcy ci stosują środki bezpieczeństwa zgodne ze standardami branżowymi i podlegają własnym politykom prywatności.</p>
+    <p>Aplikacja <strong>nie wyświetla reklam</strong> i <strong>nie śledzi Cię</strong> w aplikacjach ani na stronach internetowych innych firm.</p>
 
     <h2>6. Prywatność dzieci</h2>
     <p>Nasza Aplikacja jest przeznaczona dla użytkowników w wieku 4 lat i starszych. Nie gromadzimy świadomie danych od dzieci poniżej 4. roku życia. Rodzice mogą nadzorować korzystanie z Aplikacji przez swoje dzieci.</p>

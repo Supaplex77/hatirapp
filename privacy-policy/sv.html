@@ -45,7 +45,7 @@
     </div>
 
     <h1>Integritetspolicy</h1>
-    <p class="updated">Senast uppdaterad: 14 mars 2026</p>
+    <p class="updated">Senast uppdaterad: 28 september 2026</p>
 
     <p>Vi på Hatır-appen ("Appen") respekterar din integritet. Denna integritetspolicy förklarar på ett tydligt och transparent sätt hur dina data hanteras när du använder vår App.</p>
 
@@ -62,33 +62,29 @@
     </ul>
     <p>Denna data överförs aldrig till någon server; den finns helt på din enhet. Den kan inte nås av andra appar eller tredje parter.</p>
 
-    <h2>2. Användningsdata som vi samlar in</h2>
-    <p>För att förbättra och utveckla Appen samlar vi in följande <strong>anonyma, aggregerade</strong> information på ett säkert sätt. Denna data identifierar dig inte personligen och innehåller inte något innehåll du anger (som namn, nummer osv.).</p>
+    <h2>2. Tekniska data som vi samlar in</h2>
+    <p>Appen kräver inget konto och skickar aldrig innehållet du anger någonstans. För att Appen ska fungera stabilt behandlas endast följande <strong>tekniska</strong> information:</p>
     <ul>
-        <li><strong>Senaste aktivitetstid:</strong> Tidsstämpel för när Appen senast användes</li>
-        <li><strong>Antal sparade kontakter:</strong> Det totala antalet kontakter du har lagt till (endast tal, utan namn eller detaljer)</li>
-        <li><strong>Antal påminnelser:</strong> Antalet påminnelser du har skapat (endast tal, utan innehåll)</li>
-        <li><strong>Antal interaktioner:</strong> Det totala antalet av dina interaktioner med kontakter (endast tal, utan detaljer)</li>
-        <li><strong>Enhets-ID:</strong> Anonym identifierare som används för att skilja mellan App-versioner och enheter</li>
-        <li><strong>Operativsystemversion:</strong> iOS-versionen på din enhet (för kompatibilitet och felsökning)</li>
-        <li><strong>App-version:</strong> Versionsnumret för Hatır-appen du använder</li>
-        <li><strong>Kraschrapporter:</strong> Teknisk information för felsökning när Appen kraschar (t.ex. stack trace, enhetsmodell, OS-version; inkluderar inte innehåll du anger)</li>
+        <li><strong>Kraschrapporter:</strong> Tekniska uppgifter för att åtgärda en krasch (t.ex. stackspårning, enhetsmodell, iOS-version, appversion). Innehållet du anger ingår aldrig.</li>
+        <li><strong>Appinställningar:</strong> När Appen startar läser den inställningar som lägsta version som stöds och underhållsstatus från en server. Endast tekniska uppgifter, som appversionen, skickas med denna begäran.</li>
+        <li><strong>Anonym installations-ID:</strong> En slumpmässig identifierare som är unik för denna installation av Appen och krävs för tjänsterna ovan. Den identifierar dig inte personligen.</li>
     </ul>
-    <p>Denna data lagras säkert via Firestore- och Firebase Crashlytics-infrastruktur och används enbart för att förbättra App-kvaliteten och åtgärda fel.</p>
+    <p>Denna information behandlas via Firebase Crashlytics och Firebase Remote Config. Ingen användningsstatistik, analysdata eller annonsdata samlas in.</p>
 
     <h2>3. Hur vi använder dina data</h2>
-    <p>Vi använder den insamlade användningsdata för följande ändamål:</p>
+    <p>Vi använder denna tekniska information endast för att:</p>
     <ul>
-        <li>Leverera Appens kärnfunktioner (påminnelser, aviseringar)</li>
-        <li>Analysera App-prestanda och åtgärda fel</li>
-        <li>Få allmän statistik för att förbättra användarupplevelsen</li>
+        <li>Upptäcka och åtgärda fel och hålla Appen stabil</li>
+        <li>Hålla Appens inställningar uppdaterade (t.ex. meddela dig när en uppdatering krävs)</li>
     </ul>
+    <p>Påminnelser och aviseringar skapas och schemaläggs helt på din enhet.</p>
 
     <h2>4. Datalagring och säkerhet</h2>
-    <p>Dina personliga inmatningsdata lagras endast på din enhet. Du kan när som helst ta bort alla dina data via Appen. Användningsdata förvaras på säkra servrar och överförs via krypterade anslutningar.</p>
+    <p>Dina personliga inmatningsdata lagras endast på din enhet. Du kan ta bort personer en i taget i Appen, eller ta bort alla dina data genom att radera Appen från din enhet. Kraschrapporter överförs via krypterade anslutningar och lagras på Googles säkra servrar.</p>
 
-    <h2>5. Tjänster från tredje part</h2>
-    <p>Appen använder pålitliga tjänster från tredje part som Google Firestore för datalagring, Firebase Crashlytics för kraschrapportering och Google AdMob för annonsvisning. Annonser kan använda aggregerad statistik (enhetstyp, antal annonsvisningar osv.) utan att samla in ditt personliga innehåll. Dessa leverantörer tillämpar branschstandard för säkerhetsåtgärder och omfattas av sina egna integritetspolicyer.</p>
+    <h2>5. Tredjepartstjänster, annonser och spårning</h2>
+    <p>Appen använder endast Firebase Crashlytics för kraschrapporter och Firebase Remote Config för appinställningar (båda från Google). Dessa leverantörer tillämpar säkerhetsåtgärder enligt branschstandard och omfattas av sina egna integritetspolicyer.</p>
+    <p>Appen <strong>visar inga annonser</strong> och <strong>spårar dig inte</strong> i appar eller på webbplatser som ägs av andra företag.</p>
 
     <h2>6. Barns integritet</h2>
     <p>Vår App är avsedd för användare från 4 år och uppåt. Vi samlar inte medvetet in data från barn under 4 år. Föräldrar kan övervaka sina barns användning av Appen.</p>
